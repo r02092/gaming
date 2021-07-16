@@ -2,9 +2,30 @@
 <head>
 <title>Game Test</title>
 <meta charset="utf-8">
+<style>
+body{
+   margin: 0;
+}
+.gamebg{
+       background: url("taiikusai.jpg") no-repeat;
+       background-size: cover;
+       min-height: 100vh;
+       min-width: 100vh;
+}
+#txt{
+   color: white;
+}
+.box{
+       background: rgba(105,105,105,0.5);
+}
+</style>
 </head>
 <body onLoad="disp()">
-<p id="show">test</p>
+<div class="gamebg">
+<div class="box">
+<p id="txt">test</p>
+</div>
+</div>
 <script src="script.js">
 </script>
 </body>
