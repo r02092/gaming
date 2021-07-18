@@ -1,0 +1,62 @@
+<html>
+	<head>
+		<title>Game Test</title>
+		<style>
+			body{
+				position: relative;
+				background-size: cover;
+				font-family: "BIZ UDゴシック", sans-serif;
+			}
+			#chr{
+				position: absolute;
+			}
+			#txt{
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				margin: 0 auto;
+				font-size: 3em;
+				line-height: 1.1;
+				height: 3.3em;
+				border-radius: .3em;
+				background: rgba(0,0,0,.8);
+				color: white;
+				padding: .1em;
+			}
+		</style>
+	</head>
+	<body>
+		<audio id="bgm" src="bgm/voice_5228.m4a" autoplay loop></audio>
+		<img id="chr">
+		<div id="txt"></div>
+		<script>
+			document.getElementById("bgm").play();
+			document.oncontextmenu=function(){return false};
+			document.onkeydown=function(){count=1+msg.length};
+			img=document.getElementById("chr");
+			var count=0;
+			scene("test");
+			function scene(sn){
+				load("scene",sn);
+			}
+			function chr(cn){
+				img.setAttribute("src","chr/"+cn+".png");
+				load("chr",cn);
+			}
+			function load(dir,file){
+				var s=document.createElement("script");
+				s.src=dir+"/" +file+".js";
+				document.body.appendChild(s);
+			}
+			function disp(){
+				document.getElementById("txt").innerText=msg.substring(0,count);
+				count++;
+				var rep=setTimeout("disp()",99);
+				if(count>msg.length){
+					clearTimeout(rep);
+				}
+			}
+		</script>
+	</body>
+</html>
